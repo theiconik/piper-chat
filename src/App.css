@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap');
+
 @font-face {
   font-family: "Prime-Light";
   src: url("Prime-Light.eot");
@@ -15,6 +17,13 @@ body {
   background-color: #15353c;
   max-height: 100vh;
   color: white;
+}
+
+.heading {
+  font-family: "Cairo", sans-serif;
+  text-align: center;
+  margin-top:"40px";
+  font-weight:700;
 }
 
 footer {
