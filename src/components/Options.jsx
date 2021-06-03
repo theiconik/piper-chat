@@ -5,7 +5,6 @@ import {
   Grid,
   Typography,
   Container,
-  Paper,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { CopyToClipboard } from "react-copy-to-clipboard";
@@ -52,6 +51,7 @@ const Options = ({ children }) => {
     useContext(SocketContext);
 
   const [idToCall, setIdToCall] = useState("");
+  console.log(me);
 
   const classes = useStyles();
 
@@ -84,7 +84,7 @@ const Options = ({ children }) => {
             <CopyToClipboard text={me} className={classes.margin}>
               <Button
                 variant="contained"
-                style={{ backgroundColor: "#89a2a1", color:"white" }}
+                style={{ backgroundColor: "#89a2a1", }}
                 fullWidth
                 startIcon={<Assignment fontSize="large" />}
               >
@@ -118,7 +118,7 @@ const Options = ({ children }) => {
             {callAccepted && !callEnded ? (
               <Button
                 variant="contained"
-                style={{ backgroundColor: "#6fdfb8", color:"white" }}
+                style={{ color:"white", backgroundColor:"red" }}
                 fullWidth
                 onClick={leaveCall}
                 className={classes.margin}
@@ -134,9 +134,9 @@ const Options = ({ children }) => {
             ) : (
               <Button
               variant="contained"
-                style={{ backgroundColor: "#6fdfb8", color:"white" }}
+                style={{ backgroundColor: "#6fdfb8", }}
                 fullWidth
-                onClick={leaveCall}
+                onClick={() => callUser(me)}
                 className={classes.margin}
                 startIcon={
                   <Phone
@@ -147,6 +147,7 @@ const Options = ({ children }) => {
             )}
           </Grid>
         </Grid>
+        {children}
       </form>
     </Container>
   );

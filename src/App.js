@@ -10,13 +10,15 @@ function App() {
         <i className="fab fa-pied-piper"></i> piper chat
       </h1>
 
-      {/* Video Player */}
-      <VideoPlayer />
-      {/* Options -> Notifications */}
-      <div width="100%" style={{display: 'flex', justifyContent: 'center'}}>
-        <Options>
-          <Notifications />
-        </Options>
+      <div className="main-area">
+        {/* Video Player */}
+        <VideoPlayer />
+        {/* Options -> Notifications */}
+        <div width="100%" style={{ display: "flex", justifyContent: "center" }}>
+          <Options>
+            <Notifications />
+          </Options>
+        </div>
       </div>
 
       <footer>

@@ -1,38 +1,64 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap");
 
 @font-face {
   font-family: "Prime-Light";
   src: url("Prime-Light.eot");
   src: url("Prime-Light.woff") format("woff");
-  }
+}
 
-*{
+* {
   font-family: "Prime-Light";
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #273e47 #15353c;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #15353c;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #273e47;
+  border-radius: 20px;
+  border: 0px groove #ffffff;
+}
+
 body {
   background-color: #15353c;
-  max-height: 100vh;
+  min-height: 100vh;
   color: white;
 }
 
 .heading {
   font-family: "Cairo", sans-serif;
   text-align: center;
-  margin-top:"40px";
-  font-weight:700;
+  margin-top: "40px";
+  font-weight: 700;
+}
+
+.main-area {
+  transform: scale(0.75);
 }
 
 footer {
   position: absolute;
   width: 100%;
-  bottom:10px;
-  font-size: 0.70rem;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  bottom: 10px;
+  font-size: 0.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
 }
