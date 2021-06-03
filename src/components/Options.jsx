@@ -51,7 +51,6 @@ const Options = ({ children }) => {
     useContext(SocketContext);
 
   const [idToCall, setIdToCall] = useState("");
-  console.log(me);
 
   const classes = useStyles();
 
