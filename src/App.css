@@ -29,8 +29,10 @@ body {
 footer {
   position: absolute;
   width: 100%;
-  bottom:20px;
+  bottom:10px;
+  font-size: 0.70rem;
   display:flex;
   justify-content:center;
   align-items:center;
+  color: white;
 }

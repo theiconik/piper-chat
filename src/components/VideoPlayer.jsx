@@ -1,7 +1,7 @@
-import {useContext} from 'react'
+import { useContext } from "react";
 import { Grid, Typography, Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import SocketContext from "../SocketContext";
+import { SocketContext } from "../SocketContext";
 
 const useStyles = makeStyles((theme) => ({
   video: {
@@ -27,37 +27,49 @@ const useStyles = makeStyles((theme) => ({
 
 const VideoPlayer = () => {
   const classes = useStyles();
+  const { name, callAccepted, myVideo, userVideo, callEnded, stream, call } =
+    useContext(SocketContext);
 
   return (
     <div>
       <Grid container className={classes.gridContainer}>
         {/* Our Own Video */}
-        <Paper className={classes.paper}>
-          <Grid item xs={12} md={6}>
-            <Typography
-              variant="h6"
-              style={{ fontFamily: "Prime-Light", color:"#15353c",}}
-              gutterBottom
-            >
-              The Iconik
-            </Typography>
-            <video ref={null} muted playsInline className={classes.video} />
-          </Grid>
-        </Paper>
+        {stream && (
+          <Paper className={classes.paper}>
+            <Grid item xs={12} md={6}>
+              <Typography
+                variant="h6"
+                style={{ fontFamily: "Prime-Light", color: "#15353c" }}
+                gutterBottom
+              >
+                {name || "The Iconik"}
+              </Typography>
+              <video
+                ref={myVideo}
+                muted
+                playsInline
+                autoPlay
+                className={classes.video}
+              />
+            </Grid>
+          </Paper>
+        )}
 
         {/* User's Video */}
-        <Paper className={classes.paper}>
-          <Grid item xs={12} md={6}>
-            <Typography
-              variant="h6"
-              style={{ fontFamily: "Prime-Light", color:"#15353c", }}
-              gutterBottom
-            >
-              Server
-            </Typography>
-            <video ref={null} playsInline className={classes.video} />
-          </Grid>
-        </Paper>
+        {callAccepted && !callEnded && (
+          <Paper className={classes.paper}>
+            <Grid item xs={12} md={6}>
+              <Typography
+                variant="h6"
+                style={{ fontFamily: "Prime-Light", color: "#15353c" }}
+                gutterBottom
+              >
+                {call.name || "Guest"}
+              </Typography>
+              <video ref={userVideo} playsInline autoPlay className={classes.video} />
+            </Grid>
+          </Paper>
+        )}
       </Grid>
     </div>
   );
