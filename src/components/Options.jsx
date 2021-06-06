@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     width: "600px",
-    height:"80%",
+    height: "80%",
     margin: "35px 0",
     padding: 0,
     [theme.breakpoints.down("xs")]: {
@@ -83,7 +83,7 @@ const Options = ({ children }) => {
             <CopyToClipboard text={me} className={classes.margin}>
               <Button
                 variant="contained"
-                style={{ backgroundColor: "#89a2a1", }}
+                style={{ backgroundColor: "#89a2a1" }}
                 fullWidth
                 startIcon={<Assignment fontSize="large" />}
               >
@@ -117,32 +117,38 @@ const Options = ({ children }) => {
             {callAccepted && !callEnded ? (
               <Button
                 variant="contained"
-                style={{ color:"white", backgroundColor:"red" }}
+                style={{ color: "white", backgroundColor: "red" }}
                 fullWidth
                 onClick={leaveCall}
                 className={classes.margin}
-                startIcon={
-                  <PhoneDisabled
-                    fontSize="large"
-                  />
-                }
+                startIcon={<PhoneDisabled fontSize="large" />}
               >
                 {" "}
                 Hang Up
               </Button>
+            ) : idToCall.length ? (
+              <Button
+                variant="contained"
+                style={{ backgroundColor: "#6fdfb8" }}
+                fullWidth
+                onClick={() => callUser(idToCall)}
+                className={classes.margin}
+                startIcon={<Phone fontSize="large" />}
+              >
+                Call
+              </Button>
             ) : (
               <Button
-              variant="contained"
-                style={{ backgroundColor: "#6fdfb8", }}
+                variant="contained"
+                disabled
+                style={{ backgroundColor: "#6fdfb8" }}
                 fullWidth
-                onClick={() => callUser(me)}
+                onClick={() => callUser(idToCall)}
                 className={classes.margin}
-                startIcon={
-                  <Phone
-                    fontSize="large"
-                  />
-                }
-              >Call</Button>
+                startIcon={<Phone fontSize="large" />}
+              >
+                Call
+              </Button>
             )}
           </Grid>
         </Grid>
